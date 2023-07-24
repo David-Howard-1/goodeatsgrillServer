@@ -6,10 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const dinnerItemRouter = require('./routes/dinnerMenuRouter');
+const reservationRouter = require('./routes/reservationRouter');
 
 const mongoose = require('mongoose');
-const dinnerMenuRouter = require('./routes/dinnerMenuRouter');
 
 const url = 'mongodb://127.0.0.1:27017/goodeatsgrill';
 const connect = mongoose.connect(url);
@@ -33,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/dinner-menu', dinnerMenuRouter);
+app.use('/reservations', reservationRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
